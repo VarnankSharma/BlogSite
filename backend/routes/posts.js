@@ -2,7 +2,15 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
 
-// Create a Post
+// Allow CORS for each response
+router.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://blog-site-psi-one.vercel.app");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
+
+// Create Post
 router.post("/", async (req, res) => {
   try {
     const { title, description } = req.body;

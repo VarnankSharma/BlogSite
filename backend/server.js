@@ -6,12 +6,18 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// ✅ FIX CORS: Allow requests from your frontend
-const allowedOrigins = ["https://blog-site-psi-one.vercel.app"]; // Your frontend domain
+// ✅ FIX: Properly configure CORS to allow your frontend domain
+const allowedOrigins = ["https://blog-site-psi-one.vercel.app"];
 
 app.use(
   cors({
-    origin: allowedOrigins, // Allow only frontend
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
