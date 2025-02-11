@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/posts";
+const API_URL = "https://blog-site-backend-nu.vercel.app/";
 
 export const createPost = async (postData) => {
   return await axios.post(API_URL, postData);
