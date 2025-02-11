@@ -1,2 +1,2 @@
-const app = require("../index"); // Import main app
+const app = require("../server"); // Import main app
 module.exports = app;

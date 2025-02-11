@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://blog-site-sc6u.vercel.app/api/posts"; // Corrected URL
+const API_URL = "https://blog-site-sc6u.vercel.app/api/posts"; 
 
 export const createPost = async (postData) => {
   try {
