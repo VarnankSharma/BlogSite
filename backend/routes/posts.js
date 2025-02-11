@@ -2,14 +2,13 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
 
-// Create Post
+// Create a Post
 router.post("/", async (req, res) => {
-  const { title, description } = req.body;
-  if (!title || !description) {
-    return res.status(400).json({ error: "All fields are required" });
-  }
-
   try {
+    const { title, description } = req.body;
+    if (!title || !description) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
     const newPost = new Post({ title, description });
     await newPost.save();
     res.status(201).json(newPost);
