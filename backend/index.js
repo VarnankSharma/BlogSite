@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors());
@@ -26,5 +27,5 @@ app.get("/", (req, res) => {
   res.send("🚀 Backend is Running!");
 });
 
-// Export app for Vercel Serverless Functions
+// **EXPORT APP for Vercel**
 module.exports = app;
