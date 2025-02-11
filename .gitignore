@@ -1,0 +1,7 @@
+# Ignore Node.js dependencies
+backend/node_modules/
+frontend/node_modules/
+
+# Ignore build files
+frontend/build/
+backend/.env
